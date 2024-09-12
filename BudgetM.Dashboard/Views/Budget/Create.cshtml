@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<body class="">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Kakeibo Budget</h3></div>
+                                <div class="card-body">
+
+                                    <form action="/BudgetCreate" method="post">
+                                        <div class="row mb-3">
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="NeedsNameId" type="text" placeholder="Needs Name" name="BudgetName" />
+                                                    <label for="NeedsNameId">Needs</label>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="NeedsBudgetId" type="text" placeholder="Budgets" name="BudgetPrice"/>
+                                                    <label for="NeedsBudgetId">Budget</label>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="WantsNameId" type="text" placeholder="Wants Name" name="BudgetName" />
+                                                    <label for="WantsNameId">Wants</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="WantsBudgetId" type="text" placeholder="Wants Name" name="BudgetPrice" />
+                                                    <label for="WantsBudgetId">Budget</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="CultureNameId" type="text" placeholder="Culture Name" name="BudgetName" />
+                                                    <label for="CultureNameId">Culture</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="CultureBudgetId" type="text" placeholder="Culture Name" name="BudgetPrice" />
+                                                    <label for="CultureBudgetId">Budget</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="UnexpectedNameId" type="text" placeholder="Unexpected Name" name="BudgetName" />
+                                                    <label for="UnexpectedNameId">Unexpected</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="UnexpectedBudgetId" type="text" placeholder="Unexpected Name" name="BudgetPrice" />
+                                                    <label for="UnexpectedBudgetId">Budget</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid"><button class="btn btn-primary btn-block"  type="submit">Create Budget</button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                                @*<div class="card-footer text-center py-3">
+                                    <div class="small"><a href="login.html">Have an account? Go to login</a></div>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+
