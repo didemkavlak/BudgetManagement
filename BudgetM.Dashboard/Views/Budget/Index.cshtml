@@ -40,8 +40,21 @@
 										@foreach (var item in needs)
 										{
 											<tr>
-												<td>@item.BudgetName</td>
-												<td class="text-end">@item.BudgetPrice</td>
+												<td class="align-middle">@item.BudgetName</td>
+												<td class="text-end align-middle">@item.BudgetPrice</td>
+												<td class="text-end" style="width: 5%">
+													<div class="dropdown">
+														<a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															<i class="fa-solid fa-ellipsis"></i>
+														</a>
+
+														<ul class="dropdown-menu">
+															<li><a class="dropdown-item" href="#">Düzenle</a></li>
+															<li><a class="dropdown-item" href="/BudgetDelete/?id=@item.Id">Sil</a></li>
+														</ul>
+													</div>
+												</td>
+
 											</tr>
 										}
 									</table>
@@ -77,8 +90,20 @@
 										@foreach (var item in wants)
 										{
 											<tr>
-												<td>@item.BudgetName</td>
-												<td class="text-end">@item.BudgetPrice</td>
+												<td class="align-middle">@item.BudgetName</td>
+												<td class="text-end align-middle">@item.BudgetPrice</td>
+												<td class="text-end" style="width: 5%">
+													<div class="dropdown">
+														<a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															<i class="fa-solid fa-ellipsis"></i>
+														</a>
+
+														<ul class="dropdown-menu">
+															<li><a class="dropdown-item" href="#">Düzenle</a></li>
+															<li><a class="dropdown-item" href="/BudgetDelete/?id=@item.Id">Sil</a></li>
+														</ul>
+													</div>
+												</td>
 											</tr>
 										}
 									</table>
@@ -119,8 +144,20 @@
 										@foreach (var item in culture)
 										{
 											<tr>
-												<td>@item.BudgetName</td>
-												<td class="text-end">@item.BudgetPrice</td>
+												<td class="align-middle">@item.BudgetName</td>
+												<td class="text-end align-middle">@item.BudgetPrice</td>
+												<td class="text-end" style="width: 5%">
+													<div class="dropdown">
+														<a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															<i class="fa-solid fa-ellipsis"></i>
+														</a>
+
+														<ul class="dropdown-menu">
+															<li><a class="dropdown-item" href="#">Düzenle</a></li>
+															<li><a class="dropdown-item" href="/BudgetDelete/?id=@item.Id">Sil</a></li>
+														</ul>
+													</div>
+												</td>
 											</tr>
 										}
 									</table>
@@ -160,8 +197,20 @@
 										@foreach (var item in unexpected)
 										{
 											<tr>
-												<td>@item.BudgetName</td>
-												<td class="text-end">@item.BudgetPrice</td>
+												<td class="align-middle">@item.BudgetName</td>
+												<td class="text-end align-middle">@item.BudgetPrice</td>
+												<td class="text-end" style="width: 5%">
+													<div class="dropdown">
+														<a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+															<i class="fa-solid fa-ellipsis"></i>
+														</a>
+
+														<ul class="dropdown-menu">
+															<li><a class="dropdown-item" href="#">Düzenle</a></li>
+															<li><a class="dropdown-item" href="/BudgetDelete/?id=@item.Id">Sil</a></li>
+														</ul>
+													</div>
+												</td>
 											</tr>
 										}
 									</table>
@@ -182,6 +231,7 @@
 			</div>
 </div>
 
-
+		</div>
+	</div>
 
 

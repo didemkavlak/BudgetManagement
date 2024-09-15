@@ -40,5 +40,12 @@ namespace BudgetM.Dashboard.Controllers
             return RedirectToRoute("BudgetList");  
 
         }
+
+
+        public ActionResult Delete(Guid id)
+        {
+            BudgetOP.Delete(id);
+            return RedirectToRoute("BudgetList");
+		}
     }
 }

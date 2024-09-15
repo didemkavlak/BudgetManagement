@@ -13,7 +13,14 @@ namespace BudgetM.Dashboard
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+
+			routes.MapRoute(
+			name: "BudgetDelete",
+			url: "BudgetDelete",
+			defaults: new { controller = "Budget", action = "Delete", id = UrlParameter.Optional }
+		);
+
+			routes.MapRoute(
               name: "BudgetCreate",
               url: "BudgetCreate",
               defaults: new { controller = "Budget", action = "Create", id = UrlParameter.Optional }

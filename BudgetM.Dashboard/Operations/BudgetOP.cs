@@ -39,8 +39,27 @@ namespace BudgetM.Dashboard.Operations
 
         }
 
+		public static bool Delete(Guid id)
+		{
+			try
+			{
+				var result = list.FirstOrDefault(x => x.Id == id);
+				list.Remove(result);
 
-        public static List<BudgetDTO> GetList()
+				return true;
+			}
+			catch (Exception)
+			{
+
+				return false;
+			}
+
+
+
+		}
+
+
+		public static List<BudgetDTO> GetList()
         {
             if(list == null || list.Count ==0 )
             {
@@ -69,6 +88,8 @@ namespace BudgetM.Dashboard.Operations
 
             return list;
         }
+
+    
 
 
     }
