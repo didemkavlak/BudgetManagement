@@ -2,13 +2,13 @@
 @model List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var needs = ViewBag.Needs as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
-    var wants = ViewBag.Wants as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
-    var culture = ViewBag.Culture as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
-    var unexpected = ViewBag.Unexpected as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var needs = ViewBag.Needs as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var wants = ViewBag.Wants as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var culture = ViewBag.Culture as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var unexpected = ViewBag.Unexpected as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
 }
 
 
@@ -16,160 +16,170 @@
 <div class="container-fluid mt-4">
 
 
-    <h2 class="fw-bold mb-4">Monthly Kakeibo Budget Summary</h2>
+	<h2 class="fw-bold mb-4">Monthly Kakeibo Budget Summary</h2>
 
-    <div class="row">
+	<div class="row">
 
-        <div class="col-sm-6">
+		<div class="col-sm-6">
 
-            <div class="card border-secondary mb-3">
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
+			<div class="card border-secondary mb-3">
+				<div class="accordion" id="accordionPanelsStayOpenExample">
+					<div class="accordion-item">
 
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                <h5>Needs</h5>
-                            </button>
-                        </h2>
-
-
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                            <div class="accordion-body">
-                                <div class="card-body text-black">
+						<h2 class="accordion-header">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-needs" aria-expanded="true" aria-controls="panelsStayOpen-needs">
+								<h5>Needs</h5>
+							</button>
+						</h2>
 
 
+						<div id="panelsStayOpen-needs" class="accordion-collapse collapse show">
+							<div class="accordion-body">
+								<div class="card-body text-black">
+									<table class="table table-hover">
+										@foreach (var item in needs)
+										{
+											<tr>
+												<td>@item.BudgetName</td>
+												<td class="text-end">@item.BudgetPrice</td>
+											</tr>
+										}
+									</table>
+									<h6 class="card-title text-end fw-bold">Total Needs: @needs.Sum(x => x.BudgetPrice) </h6>
+								</div>
+							</div>
+						</div>
 
-                                    <table class="table table-hover">
+					</div>
+				</div>
 
+			</div>
 
-                                        @foreach (var item in needs)
-                                            {
-                                                <tr>
-                                                    <td>@item.BudgetName</td>
-                                                    <td class="text-end">@item.BudgetPrice</td>
-                                                </tr>
-                                            }
+		</div>
 
-
-                                    </table>
-
-                                    <h6 class="card-title text-end fw-bold">Total Needs: @needs.Sum(x => x.BudgetPrice) </h6>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-sm-6">
+		<div class="col-sm-6">
 
 
-            <div class="card border-secondary mb-3">
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
+			<div class="card border-secondary mb-3">
+				<div class="accordion" id="accordionPanelsStayOpenExample">
+					<div class="accordion-item">
 
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                                <h5>Wants</h5>
-                            </button>
-                        </h2>
+						<h2 class="accordion-header">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-wants" aria-expanded="true" aria-controls="panelsStayOpen-wants">
+								<h5>Wants</h5>
+							</button>
+						</h2>
+						<div id="panelsStayOpen-wants" class="accordion-collapse collapse show">
+							<div class="accordion-body">
+								<div class="card-body text-black">
+									<table class="table table-hover">
 
-
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
-                            <div class="accordion-body">
-                                <div class="card-body text-black">
-
-
-
-
-                                    <table class="table table-hover">
-
-                                        @foreach (var item in wants)
-                                        {
-                                            <tr>
-                                                <td>@item.BudgetName</td>
-                                                <td class="text-end">@item.BudgetPrice</td>
-                                            </tr>
-                                        }
-
-                                       
-                                    </table>
-
-                                    <h6 class="card-title text-end fw-bold">Total Wants: @wants.Sum(x => x.BudgetPrice) </h6>
-                                </div>
-                            </div>
-                        </div>
+										@foreach (var item in wants)
+										{
+											<tr>
+												<td>@item.BudgetName</td>
+												<td class="text-end">@item.BudgetPrice</td>
+											</tr>
+										}
+									</table>
+									<h6 class="card-title text-end fw-bold">Total Wants: @wants.Sum(x => x.BudgetPrice) </h6>
+								</div>
+							</div>
+						</div>
 
 
 
 
-                    </div>
-                </div>
+					</div>
+				</div>
 
-            </div>
+			</div>
 
-        </div>
-
-
-        <div class="col-sm-6">
-
-            <div class="card border-secondary mb-3">
-                <div class="card-header"><h5>Culture</h5></div>
-                <div class="card-body text-black">
-                    <table class="table table-hover">
-
-                        @foreach (var item in culture)
-                        {
-                            <tr>
-                                <td>@item.BudgetName</td>
-                                <td class="text-end">@item.BudgetPrice</td>
-                            </tr>
-                        }
-
-                       
-                    </table>
-                    <h6 class="card-title text-end fw-bold">Total Needs: @culture.Sum(x => x.BudgetPrice)</h6>
-                </div>
-            </div>
-
-        </div>
+		</div>
 
 
-        <div class="col-sm-6">
+		<div class="col-sm-6">
 
-            <div class="card border-secondary mb-3">
-                <div class="card-header"><h5>Unexpected</h5></div>
-                <div class="card-body text-black">
-                    <table class="table table-hover">
-
-                        @foreach (var item in unexpected)
-                        {
-                            <tr>
-                                <td>@item.BudgetName</td>
-                                <td class="text-end">@item.BudgetPrice</td>
-                            </tr>
-                        }
+			<div class="card border-secondary mb-3">
 
 
-                    </table>
+				<div class="accordion" id="accordionPanelsStayOpenExample">
+					<div class="accordion-item">
 
-                    <h6 class="card-title text-end fw-bold">Total Needs: @unexpected.Sum(x => x.BudgetPrice) </h6>
-                </div>
-            </div>
+						<h2 class="accordion-header">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-culture" aria-expanded="true" aria-controls="panelsStayOpen-culture">
+								<h5>Culture</h5>
+							</button>
+						</h2>
+						<div id="panelsStayOpen-culture" class="accordion-collapse collapse show">
+							<div class="accordion-body">
+								<div class="card-body text-black">
+									<table class="table table-hover">
 
-        </div>
+										@foreach (var item in culture)
+										{
+											<tr>
+												<td>@item.BudgetName</td>
+												<td class="text-end">@item.BudgetPrice</td>
+											</tr>
+										}
+									</table>
+									<h6 class="card-title text-end fw-bold">Total Wants: @culture.Sum(x => x.BudgetPrice) </h6>
+								</div>
+							</div>
+						</div>
 
 
 
 
-    </div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="col-sm-6">
+
+			<div class="card border-secondary mb-3">
+
+
+				<div class="accordion" id="accordionPanelsStayOpenExample">
+					<div class="accordion-item">
+
+						<h2 class="accordion-header">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-unexpected" aria-expanded="true" aria-controls="panelsStayOpen-unexpected">
+								<h5>Unexpected</h5>
+							</button>
+						</h2>
+						<div id="panelsStayOpen-unexpected" class="accordion-collapse collapse show">
+							<div class="accordion-body">
+								<div class="card-body text-black">
+									<table class="table table-hover">
+
+										@foreach (var item in unexpected)
+										{
+											<tr>
+												<td>@item.BudgetName</td>
+												<td class="text-end">@item.BudgetPrice</td>
+											</tr>
+										}
+									</table>
+									<h6 class="card-title text-end fw-bold">Total Wants: @unexpected.Sum(x => x.BudgetPrice) </h6>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+
+
+
+			</div>
 </div>
 
 
