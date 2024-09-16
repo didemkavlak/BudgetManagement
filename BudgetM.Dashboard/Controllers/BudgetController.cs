@@ -26,8 +26,6 @@ namespace BudgetM.Dashboard.Controllers
             return View(budgetList);
         }
 
-	
-
 		public ActionResult Create()
         {
             return View();
