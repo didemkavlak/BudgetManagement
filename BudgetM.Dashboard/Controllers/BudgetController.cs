@@ -21,8 +21,6 @@ namespace BudgetM.Dashboard.Controllers
             ViewBag.Culture = budgetList.Where(x => x.BudgetCategory == BudgetCategory.Culture).ToList();
             ViewBag.Unexpected = budgetList.Where(x => x.BudgetCategory == BudgetCategory.Unexpected).ToList();
 
-
-
             return View(budgetList);
         }
 
