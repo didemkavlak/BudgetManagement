@@ -1,7 +1,28 @@
-﻿
+﻿@model BudgetM.Dashboard.Models.DTOs.BudgetDTO
+
+
 @{
 	ViewBag.Title = "Create";
 	Layout = "~/Views/Shared/_Layout.cshtml";
+
+	var title = "Add Budget";
+	var btncolor = "btn-primary";
+	var btntext = "Save";
+	var btnIcon = "fa-regular fa-floppy-disk";
+
+	if ( Model != null)
+	{
+		title = "Update Budget";
+		btncolor = "btn-success";
+		btntext = "Update";
+		btnIcon = "fa-solid fa-rotate";
+	}
+
+
+	var needs = ViewBag.Needs as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var wants = ViewBag.Wants as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var culture = ViewBag.Culture as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+	var unexpected = ViewBag.Unexpected as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
 
 }
 
@@ -14,18 +35,21 @@
 					<div class="row justify-content-center">
 						<div class="col-lg-7">
 							<div class="card shadow-lg border-0 rounded-lg mt-5">
-								<div class="card-header"><h3 class="text-center font-weight-light my-4">Kakeibo Budget</h3></div>
+								<div class="card-header"><h3 class="text-center font-weight-light my-4">@title </h3></div>
 								<div class="card-body">
 
 									<form action="/BudgetCreate" method="post">
 
+										@if( @Model != null )
+												{
+													<input type="hidden" value="@Model.Id" name="Id" />
+												}
+
+
 										<div class="row mb-3">
-
-
-
 											<div class="col-md-6">
 												<div class="form-floating mb-3 mb-md-0">
-													<input class="form-control" id="NeedsNameId" type="text" placeholder="Needs" name="BudgetName" />
+													<input class="form-control" id="NeedsNameId" type="text" placeholder="Needs" name="BudgetName" value="@(Model != null ? Model.BudgetName : "")" />
 													<label for="NeedsNameId">Budget Name</label>
 												</div>
 											</div>
@@ -33,7 +57,7 @@
 
 											<div class="col-md-6">
 												<div class="form-floating mb-3 mb-md-0">
-													<input class="form-control" id="NeedsBudgetId" type="text" placeholder="Budgets" name="BudgetPrice" />
+													<input class="form-control" id="NeedsBudgetId" type="text" placeholder="Budgets" name="BudgetPrice" value="@(Model != null ? Model.BudgetPrice : 0)" />
 													<label for="NeedsBudgetId">Budget Price</label>
 												</div>
 											</div>
@@ -48,17 +72,19 @@
 													<label class="mb-2" for="CategorySelectId">Select Category</label>
 													
 													<select class="form-select" aria-label="Default select example" name="BudgetCategory">
-														<option selected value="0">Needs</option>
-														<option value="1">Wants</option>
-														<option value="2">Culture</option>
-														<option value="3">Unexpected</option>
+
+															<option value="0">Needs</option>
+															<option value="1" >Wants</option>
+															<option value="2" >Culture</option>
+															<option value="3" >Unexpected</option>
+														
 													</select>
 
 												</div>
 											</div>
 										</div>
 										<div class="mt-4 mb-0">
-											<div class="d-grid"><button class="btn btn-primary btn-block" type="submit">Create Budget</button></div>
+											<div class="d-grid"><button class="btn @btncolor btn-block" type="submit"><i class="@btnIcon me-2"></i>@btntext</button></div>
 										</div>
 									</form>
 </div>

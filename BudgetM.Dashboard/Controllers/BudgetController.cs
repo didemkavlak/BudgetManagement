@@ -24,16 +24,40 @@ namespace BudgetM.Dashboard.Controllers
             return View(budgetList);
         }
 
-		public ActionResult Create()
+		public ActionResult Create(Guid? id)
         {
-            return View();
+            if (id != null && id != Guid.Empty)
+            {
+                var budgetDTO = BudgetOP.Get((Guid)id);
+                return View(budgetDTO);
+            }
+            else
+            {
+
+				return View();
+			}
         }
 
         [HttpPost]
-        public ActionResult Create(BudgetDTO budgerDTO)
+        public ActionResult Create(BudgetDTO budgetDTO)
         {
-            BudgetOP.Add(budgerDTO);
-            return RedirectToRoute("BudgetList");  
+            var result = BudgetOP.Get((Guid)budgetDTO.Id);
+
+            if (result != null)
+            {
+
+                BudgetOP.Upload(budgetDTO);
+				return RedirectToRoute("BudgetList");
+
+			} else {
+
+
+				BudgetOP.Add(budgetDTO);
+				return RedirectToRoute("BudgetList");
+
+			}
+
+
 
         }
 

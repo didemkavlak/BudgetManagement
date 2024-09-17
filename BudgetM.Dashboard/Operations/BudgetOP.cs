@@ -17,9 +17,7 @@ namespace BudgetM.Dashboard.Operations
         public static List<BudgetDTO> GetAll()
         {
             
-
             return GetList();
-
 
         }
 
@@ -39,6 +37,42 @@ namespace BudgetM.Dashboard.Operations
 
         }
 
+
+        public static BudgetDTO Get(Guid? id)
+        {
+            try
+            {
+                var result = list.FirstOrDefault(x => x.Id == id);
+                return result;
+
+            }
+            catch (Exception)
+            {
+
+				return null;
+			}
+        }
+
+
+        //Update
+        public static bool Upload(BudgetDTO budgetDTO)
+        {
+            try
+            {
+                var result = list.FirstOrDefault(x => x.Id == budgetDTO.Id);
+                result.BudgetName = budgetDTO.BudgetName;
+                result.BudgetPrice = budgetDTO.BudgetPrice;
+                result.BudgetCategory = budgetDTO.BudgetCategory;
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
 		public static bool Delete(Guid id)
 		{
 			try
@@ -53,8 +87,6 @@ namespace BudgetM.Dashboard.Operations
 
 				return false;
 			}
-
-
 
 		}
 
