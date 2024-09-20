@@ -14,8 +14,8 @@ namespace BudgetM.Dashboard.Models.DTOs
         public decimal BudgetPrice { get; set; }
         public decimal BudgetTotal {  get; set; }
 
-        public decimal Income { get; set; }
-        public decimal SavingGoal { get; set; }
+        
+		
 
     }
 }

@@ -1,5 +1,5 @@
 ﻿@model BudgetM.Dashboard.Models.DTOs.BudgetDTO
-
+@using BudgetM.Dashboard.Enums;
 
 @{
 	ViewBag.Title = "Create";
@@ -19,10 +19,7 @@
 	}
 
 
-	var needs = ViewBag.Needs as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
-	var wants = ViewBag.Wants as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
-	var culture = ViewBag.Culture as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
-	var unexpected = ViewBag.Unexpected as List<BudgetM.Dashboard.Models.DTOs.BudgetDTO>;
+
 
 }
 
@@ -73,10 +70,10 @@
 													
 													<select class="form-select" aria-label="Default select example" name="BudgetCategory">
 
-															<option value="0">Needs</option>
-															<option value="1" >Wants</option>
-															<option value="2" >Culture</option>
-															<option value="3" >Unexpected</option>
+															<option value="0" @(Model != null && Model.BudgetCategory == BudgetCategory.Needs ? "selected" : "")>Needs</option>
+															<option value="1" @(Model != null && Model.BudgetCategory == BudgetCategory.Wants ? "selected" : "")>Wants</option>
+															<option value="2" @(Model != null && Model.BudgetCategory == BudgetCategory.Culture ? "selected" : "")>Culture</option>
+															<option value="3" @(Model != null && Model.BudgetCategory == BudgetCategory.Unexpected ? "selected" : "") >Unexpected</option>
 														
 													</select>
 
