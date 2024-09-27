@@ -113,6 +113,7 @@
     <Compile Include="Models\DTOs\IncomeDTO.cs" />
     <Compile Include="Models\DTOs\SavingDTO.cs" />
     <Compile Include="Operations\BudgetOP.cs" />
+    <Compile Include="Operations\IncomeOP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿
+﻿@model List<BudgetM.Dashboard.Models.DTOs.IncomeDTO>
+
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,10 +30,11 @@
 							<div class="accordion-body">
 								<div class="card-body text-black">
 									<table class="table table-hover">
-										
+										@foreach (var item in Model)
+										{
 											<tr>
-												<td class="align-middle">Income Name</td>
-												<td class="text-end align-middle">Income</td>
+												<td class="align-middle">@item.IncomeName</td>
+												<td class="text-end align-middle">@item.Income</td>
 												<td class="text-end" style="width: 5%">
 													<div class="dropdown">
 														<a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,7 +49,10 @@
 												</td>
 
 											</tr>
-										
+
+										}
+
+
 									</table>
 									<h6 class="card-title text-end fw-bold">Total Income :  </h6>
 								</div>

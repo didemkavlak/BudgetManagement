@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BudgetM.Dashboard.Operations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace BudgetM.Dashboard.Controllers
         // GET: Income
         public ActionResult Index()
         {
-            return View();
+            var incomeList = IncomeOP.GetAll();
+
+            return View(incomeList);
         }
     }
 }

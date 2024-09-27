@@ -15,6 +15,13 @@ namespace BudgetM.Dashboard
 
 
 			routes.MapRoute(
+			   name: "IncomeList",
+			   url: "IncomeList",
+			   defaults: new { controller = "Income", action = "Index", id = UrlParameter.Optional }
+		   );
+
+
+			routes.MapRoute(
 			name: "BudgetDelete",
 			url: "BudgetDelete",
 			defaults: new { controller = "Budget", action = "Delete", id = UrlParameter.Optional }
